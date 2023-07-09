@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <img class="center" src="imagens-suzuki-celerio.jpeg" width="350" height="200"/>
+    <style>
+        img{
+            border: 5px solid rebeccapurple;
+            border-radius: 50%;
+        }
+    </style>
+    <style>
+        
+        body{
+            background-color: black;
+        }
+    </style>
+  <title>Aplicativo Simon servise de corrida 150 kwanzas</title>
+  <style>
+    body{
+      text-align: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px; 
+      color: white;
+    }
+       
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+     
+    } 
+   nav {
+        display:flex;
+        justify-content: space-between; 
+        list-style-type: none;
+        align-items: center;
+        padding: 0px;
+     
+    }
+    
+  </style>
+</head>
+<body>
+            <nav>
+            <a class="wrapper wrapper1">
+            <a href="sobremim.html"target="_blank"><button class="btn1">Sobre Mim</button></a><br>
+            <a href="contatos.html"target="_blank"><button class="btn2">Contatos</button></a><br>
+            </nav>
+
+  <h1>Aplicativo de Corrida Simon Servise</h1>
+  <p>Sempre juntos em qualquer ponto</p>
+
+  <div class="input-container">
+    <label for="distance">Distância (km):</label>
+    <input type="number" id="distance" step="0.01" min="0">
+  </div>
+
+  <div class="input-container">
+    <label for="speed">Velocidade (km /minutos por horas):</label>
+    <input type="number" id="speed" step="0.01" min="0">
+  </div>
+
+  <button onclick="calculate()">Calcular</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculate() {
+      var distanceInput = document.getElementById('distance');
+      var speedInput = document.getElementById('speed');
+      var resultContainer = document.getElementById('result');
+
+      var distance = parseFloat(distanceInput.value);
+      var speed = parseFloat(speedInput.value);
+
+      if (isNaN(distance) || isNaN(speed)) {
+        resultContainer.innerHTML = 'Por favor, preencha a distância e a velocidade corretamente.';
+        return;
+      }
+
+      var time = distance / speed;
+      var fare = time * 1500;
+
+      resultContainer.innerHTML = 'Tempo estimado: ' + time.toFixed(2) + 'Minutos por horas<br>';
+      resultContainer.innerHTML += 'Valor da corrida: ' + fare.toFixed(2) + ' kwanzas';
+    }
+  </script>
+</body>
+</html>
